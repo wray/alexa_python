@@ -81,7 +81,7 @@ def upcoming(intent, session):
     speech_output = "<speak>Check us out at Stir Trek dot com. We will have a booth and speakers in Columbus, Ohio on May  5th!</speak>"
 
     return build_response(session_attributes, build_speechlet_response
-                          (intent['name'], speech_output, remprompt_text, should_end_session))
+                          (intent['name'], speech_output, reprompt_text, should_end_session))
 
 
 def handle_session_end_request():
