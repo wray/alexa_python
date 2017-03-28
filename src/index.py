@@ -70,7 +70,7 @@ def contact(intent, session):
     speech_output = "<speak>The best way to reach us is at info at acme dot com. You can also leave us voice mail at 8 0 4, 5 5 5, 1 2 1 2. We are also on twitter, at acme S V O S.</speak>"
 
     return build_response(session_attributes, build_speechlet_response
-                          (intent['name'], speech_output, remprompt_text, should_end_session))
+                          (intent['name'], speech_output, reprompt_text, should_end_session))
 
 def upcoming(intent, session):
     session_attributes = {}
