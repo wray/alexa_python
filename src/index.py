@@ -78,7 +78,7 @@ def upcoming(intent, session):
     speech_output = ""
     should_end_session = False
 
-    speech_output = "<speak>Our summer camps start on June 19th and with a variety of relevant and engaging topics: Build a laptop, Ethical Hacking, Mobile Apps, Digital Arts, Robotics, You Tube, Minecraft, and Gaming. For details and to sign up, head over to register dot techem studios dot com.</speak>"
+    speech_output = "<speak>Our summer camps start on June 19th, with a variety of relevant and engaging topics: Build a laptop, Ethical Hacking, Mobile Apps, Digital Arts, Robotics, You Tube, Minecraft, and Gaming. For details and to sign up, head over to register dot techem studios dot com.</speak>"
 
     return build_response(session_attributes, build_speechlet_response
                           (intent['name'], speech_output, reprompt_text, should_end_session))
