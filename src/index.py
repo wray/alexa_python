@@ -27,8 +27,8 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
         },
         'card': {
             'type': 'Simple',
-            'title': title,
-            'content': output
+            'title': 'Tech Em Studios',
+            'content': 'Go to http://register.techemstudios.com and use promo code AlexaRVA for 10% off!.'
         },
         'reprompt': {
             'outputSpeech': {
@@ -56,7 +56,7 @@ def about(intent, session):
     speech_output = ""
     should_end_session = False
 
-    speech_output = "<speak>Welcome to ACME Inc. We are the coolest company located in the Silicon Valley of the South. We love our employees, customers, and the environment.</speak>"
+    speech_output = "<speak>Welcome Tech Em Studios. We are a technology education organizationand makerspace studio in Richmond, Virginia. We specialize in teaching Computer Science to kids -- ensuring that they are ahead of the technology curve.</speak>"
 
     return build_response(session_attributes, build_speechlet_response
                           (intent['name'], speech_output, reprompt_text, should_end_session))
@@ -67,7 +67,7 @@ def contact(intent, session):
     speech_output = ""
     should_end_session = False
 
-    speech_output = "<speak>The best way to reach us is at info at acme dot com. You can also leave us voice mail at 8 0 4, 5 5 5, 1 2 1 2. We are also on twitter, at acme S V O S.</speak>"
+    speech_output = "<speak>The best way to reach us is at info at tech em studios dot com. You can also leave us voice mail at 8 0 4, 4 7 6, 0 2 7 8. We are also on twitter, at Tech Em R V A. Our website is Tech Em Studios dot com.</speak>"
 
     return build_response(session_attributes, build_speechlet_response
                           (intent['name'], speech_output, reprompt_text, should_end_session))
@@ -78,7 +78,7 @@ def upcoming(intent, session):
     speech_output = ""
     should_end_session = False
 
-    speech_output = "<speak>Check us out at Stir Trek dot com. We will have a booth and speakers in Columbus, Ohio on May  5th!</speak>"
+    speech_output = "<speak>Our summer camps start on June 19th and with a variety of relevant and engaging topics: Build a laptop, Ethical Hacking, Mobile Apps, Digital Arts, Robotics, You Tube, Minecraft, and Gaming. For details and to sign up, head over to register dot techem studios dot com.</speak>"
 
     return build_response(session_attributes, build_speechlet_response
                           (intent['name'], speech_output, reprompt_text, should_end_session))
@@ -114,7 +114,7 @@ def on_launch(launch_request, session):
                 ", sessionId=" + session['sessionId'])
     # Dispatch to your skill's launch
     return build_response({},build_speechlet_response(
-        "ACME Inc.", "<speak>Welcome to the 411 for ACME Inc. This skill provides information about ACME, a really cool company that Alexa loves to talk about.</speak>","",False))
+        "ACME Inc.", "<speak>Welcome to the 411 for Tech Em Studios. This skill provides information about Technology Emersion Studios, a really cool company that Alexa loves to talk about.</speak>","",False))
 
 
 def get_help():
@@ -122,7 +122,7 @@ def get_help():
     """
 
     return build_response({},build_speechlet_response(
-        "ACME Inc.","""<speak>This skill provides some basic information about ACME. You can ask for our location, contact info, and upcoming events.</speak>""","",False)) 
+        "ACME Inc.","""<speak>This skill provides some basic information about Tech Em Studios. You can ask for our location, contact info, and upcoming classes.</speak>""","",False)) 
 
 
 def on_intent(intent_request, session):
