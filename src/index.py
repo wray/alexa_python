@@ -56,7 +56,7 @@ def about(intent, session):
     speech_output = ""
     should_end_session = False
 
-    speech_output = "<speak>Welcome to Tech Em Studios. We are a technology education organizationand makerspace studio in Richmond, Virginia. We specialize in teaching Computer Science to kids -- ensuring that they are ahead of the technology curve.</speak>"
+    speech_output = "<speak>Welcome to Tech Em Studios. We are a technology education organization and makerspace studio in Richmond, Virginia. We specialize in teaching Computer Science to kids -- ensuring that they are ahead of the technology curve.</speak>"
 
     return build_response(session_attributes, build_speechlet_response
                           (intent['name'], speech_output, reprompt_text, should_end_session))
