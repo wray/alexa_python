@@ -1,0 +1,16 @@
+{
+  "intents": [
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "About"
+    },
+    {
+      "intent": "Contact"
+    },
+    {
+      "intent": "Upcoming"
+    }
+  ]
+}

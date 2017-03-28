@@ -8,7 +8,7 @@ deploy:
   region: us-east-1
   role: arn:aws:iam::980316180835:role/lambda_techem_skill
   runtime: python2.7
-  handler_name: lambda_fun.lambda_handler
+  handler_name: lambda_handler
   zip: ./src
   access_key_id: AKIAJC4OTPBSMBJD4ZBA
   secret_access_key:
