@@ -28,7 +28,7 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
         'card': {
             'type': 'Simple',
             'title': 'Tech Em Studios',
-            'content': 'Go to register.techemstudios.com and use promo code AlexaRVA for 10% off a class or summer camp.'
+            'content': 'Tech Em Studios is a technology education organization and makerspace studio in Richmond, Virginia. More information can be found at TechEmStudios.com'
         },
         'reprompt': {
             'outputSpeech': {
@@ -78,7 +78,7 @@ def upcoming(intent, session):
     speech_output = ""
     should_end_session = True
 
-    speech_output = "<speak>Our summer camps start on June 19th, with a variety of relevant and engaging topics: Build a laptop, Ethical Hacking, Mobile Apps, Digital Arts, Robotics, You Tube, Minecraft, and Gaming. For details and to sign up, head over to register dot techem studios dot com.</speak>"
+    speech_output = "<speak>We are hosting this week's AlexaRVA meetup on Thursday from six to eight P M. Summer camps start on June 19th, with a variety of relevant and engaging topics: Build a laptop, Ethical Hacking, Mobile Apps, Digital Arts, Robotics, You Tube, Minecraft, and Gaming. For details, head over to register dot techem studios dot com.</speak>"
 
     return build_response(session_attributes, build_speechlet_response
                           (intent['name'], speech_output, reprompt_text, should_end_session))
