@@ -86,7 +86,7 @@ def upcoming(intent, session):
 
 def handle_session_end_request():
     card_title = "Session Ended"
-    speech_output = "<speack>Thank you for asking about our business. " \
+    speech_output = "<speak>Thank you for asking about our business. " \
       "Have a nice day! </speak>"
     # Setting this to true ends the session and exits the skill.
     should_end_session = True
