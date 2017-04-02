@@ -28,7 +28,7 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
         'card': {
             'type': 'Simple',
             'title': 'Tech Em Studios',
-            'content': 'Go to register.techemstudios.com and use promo code AlexaRVA for 10% off a class or camp.'
+            'content': 'Go to register.techemstudios.com and use promo code AlexaRVA for 10% off a class or summer camp.'
         },
         'reprompt': {
             'outputSpeech': {
