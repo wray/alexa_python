@@ -54,7 +54,7 @@ def about(intent, session):
     session_attributes = {}
     reprompt_text = None
     speech_output = ""
-    should_end_session = False
+    should_end_session = True
 
     speech_output = "<speak>Welcome to Tech Em Studios. We are a technology education organization and makerspace studio in Richmond, Virginia. We specialize in teaching Computer Science to kids -- ensuring that they are ahead of the technology curve.</speak>"
 
@@ -65,7 +65,7 @@ def contact(intent, session):
     session_attributes = {}
     reprompt_text = None
     speech_output = ""
-    should_end_session = False
+    should_end_session = True
 
     speech_output = "<speak>The best way to reach us is at info at tech em studios dot com. You can also leave us voice mail at 8 0 4, 4 7 6, 0 2 7 8. We are also on twitter, at Tech Em R V A. Our website is Tech Em Studios dot com.</speak>"
 
@@ -76,7 +76,7 @@ def upcoming(intent, session):
     session_attributes = {}
     reprompt_text = None
     speech_output = ""
-    should_end_session = False
+    should_end_session = True
 
     speech_output = "<speak>Our summer camps start on June 19th, with a variety of relevant and engaging topics: Build a laptop, Ethical Hacking, Mobile Apps, Digital Arts, Robotics, You Tube, Minecraft, and Gaming. For details and to sign up, head over to register dot techem studios dot com.</speak>"
 
@@ -86,8 +86,8 @@ def upcoming(intent, session):
 
 def handle_session_end_request():
     card_title = "Session Ended"
-    speech_output = "Thank you for asking about our business. " \
-      "Have a nice day! "
+    speech_output = "<speack>Thank you for asking about our business. " \
+      "Have a nice day! </speak>"
     # Setting this to true ends the session and exits the skill.
     should_end_session = True
     return build_response({}, build_speechlet_response(
@@ -114,7 +114,7 @@ def on_launch(launch_request, session):
                 ", sessionId=" + session['sessionId'])
     # Dispatch to your skill's launch
     return build_response({},build_speechlet_response(
-        "ACME Inc.", "<speak>Welcome to the 411 for Tech Em Studios. This skill provides information about Technology Emersion Studios, a really cool company that Alexa loves to talk about.</speak>","",False))
+        "Tech Em Studios", "<speak>Welcome to the 4 1 1 for Tech Em Studios. This skill provides information about Technology Emersion Studios, a really cool company that Alexa loves to talk about.</speak>","",False))
 
 
 def get_help():
