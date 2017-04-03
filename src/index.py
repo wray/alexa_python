@@ -56,7 +56,7 @@ def about(intent, session):
     speech_output = ""
     should_end_session = True
 
-    speech_output = "<speak>Welcome to Tech Em Studios. We are a technology education organization and makerspace studio in Richmond, Virginia. We specialize in teaching Computer Science to kids -- ensuring that they are ahead of the technology curve.</speak>"
+    speech_output = "<speak>Welcome to the Tech Em Studios Information skill. One can get general info about Technology Emersion Studios, a technology education organization and makerspace studio in Richmond, Virginia. We specialize in teaching Computer Science to kids -- ensuring that they are ahead of the technology curve.</speak>"
 
     return build_response(session_attributes, build_speechlet_response
                           (intent['name'], speech_output, reprompt_text, should_end_session))
@@ -78,7 +78,7 @@ def upcoming(intent, session):
     speech_output = ""
     should_end_session = True
 
-    speech_output = "<speak>We are hosting this week's AlexaRVA meetup on Thursday from six to eight P M. Summer camps start on June 19th, with a variety of relevant and engaging topics: Build a laptop, Ethical Hacking, Mobile Apps, Digital Arts, Robotics, You Tube, Minecraft, and Gaming. For details, head over to register dot techem studios dot com.</speak>"
+    speech_output = "<speak>We are hosting this week's AlexaRVA meetup on Thursday from six to eight P M. Summer camps start on June 19th. For details, go to techemstudios dot com.</speak>"
 
     return build_response(session_attributes, build_speechlet_response
                           (intent['name'], speech_output, reprompt_text, should_end_session))
@@ -114,7 +114,7 @@ def on_launch(launch_request, session):
                 ", sessionId=" + session['sessionId'])
     # Dispatch to your skill's launch
     return build_response({},build_speechlet_response(
-        "Tech Em Studios", "<speak>Welcome to the 4 1 1 for Tech Em Studios. This skill provides information about Technology Emersion Studios, a really cool company that Alexa loves to talk about.</speak>","",False))
+        "Tech Em Studios", "<speak>Welcome to the 4 1 1 for Tech Em Studios. This skill provides information about Technology Emersion Studios, in Richmond Virginia.</speak>","",False))
 
 
 def get_help():
