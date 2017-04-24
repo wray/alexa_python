@@ -12,6 +12,7 @@ Intents supported:
 """
 
 import logging
+from wray_pi import *
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
