@@ -8,7 +8,8 @@ deploy:
   region: us-east-1
   role: arn:aws:iam::980316180835:role/lambda_techem_skill
   runtime: python3.6
-  handler_name: alexa_py.lambda_handler
+  module_name: alexa_py
+  handler_name: lambda_handler
   zip: ./src
   access_key_id: AKIAJC4OTPBSMBJD4ZBA
   on:
