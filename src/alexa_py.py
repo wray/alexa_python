@@ -12,7 +12,7 @@ Intents supported:
 """
 
 import logging
-from my_pi import *
+from my_py import *
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
