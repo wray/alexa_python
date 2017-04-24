@@ -1,16 +1,16 @@
 """
-Simple Python template module allowing users to define intents (convention is lowercase intent
+Simple Python template file allowing users to define intents (convention is lowercase intent
 name from your intentsSchema and Utterances).
-
-Intents Supported by default:
-  Open 
-  AMAZON.HelpIntent
-  AMAZON.CancelIntent or AMAZON.StopIntent
 
 Intents implemented here for example:
   About
   Contact
   Upcoming
+
+Intents supported by default (but to be filled in with your info):
+  Open 
+  AMAZON.HelpIntent
+  AMAZON.CancelIntent or AMAZON.StopIntent
 
 
 """
