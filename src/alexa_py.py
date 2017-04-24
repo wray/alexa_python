@@ -72,7 +72,7 @@ def on_intent(intent_request, session):
         speech_output = end()
     else:
         intent_name = intent_name.lower()
-        speech_output = locals()['intent_name']()
+        speech_output = locals()[intent_name]()
 
     return build_response(session_attributes, build_speechlet_response
                           (intent_name,speech_output,reprompt_text,should_end_session))

@@ -19,19 +19,19 @@ import logging
 
 # --------------- Your functions to implement your intents ------------------
 
-def about(intent, session):
+def about():
     return "<speak>Welcome to ACME Inc. We are the coolest company located in the Silicon Valley of the South. We love our employees, customers, and the environment.</speak>"
 
-def contact(intent, session):
+def contact():
     return "<speak>The best way to reach us is at info at acme dot com. You can also leave us voice mail at 8 0 4, 5 5 5, 1 2 1 2. We are also on twitter, at acme S V O S.</speak>"
 
-def upcoming(intent, session):
+def upcoming():
     return "<speak>Check us out at Stir Trek dot com. We will be in Columbus, Ohio on May  5th!</speak>"
 
 
 # --------------- Primary/Required functions (update as needed) ------------------
 
-def launch(launch_request, session):
+def launch():
     """ Called when the user launches the skill without specifying what they want
     """
 
