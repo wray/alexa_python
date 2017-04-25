@@ -20,7 +20,7 @@ deploy:
 
   - provider: s3
     bucket: alexa-python-biz
-    local-dir: response.json
+    local-dir: responses
     skip_cleanup: true
     on:
       branch: s3
