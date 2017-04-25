@@ -11,6 +11,7 @@ deploy:
   module_name: alexa_py
   handler_name: lambda_handler
   zip: ./src
+  publish: true
   access_key_id: AKIAJC4OTPBSMBJD4ZBA
   on:
     branch: s3
