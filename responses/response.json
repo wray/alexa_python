@@ -9,6 +9,6 @@
 
     "help": "<speak>This skill provides some basic information about ACME. You can ask for our location, contact info, and upcoming events.</speak>",
 
-    "end": "Thank you for asking about our business. Have a nice day!"
+    "end": "<speak>Thank you for asking about our business. Have a nice day!</speak>"
 
 }
