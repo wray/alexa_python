@@ -20,7 +20,7 @@ logger.setLevel(logging.INFO)
 
 # Load the S3 JSON
 s3 = boto3.resource('s3')
-bucket = s3.Object('alexa-python-biz','respose.json').get()['Body'].read()
+bucket = s3.Object('alexa-python-biz','response.json').get()['Body'].read()
 responses = json.parse(body)
 
 
