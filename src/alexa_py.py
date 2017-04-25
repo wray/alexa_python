@@ -71,7 +71,9 @@ def on_intent(intent_request, session):
     speech_output = ""
     should_end_session = True
 
-    if intent_name == "AMAZON.HelpIntent":
+    if intent_name == 'launch':
+        should_end_session = False
+    elif intent_name == "AMAZON.HelpIntent":
         should_end_session = False
         intent_name = 'help'
     elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
