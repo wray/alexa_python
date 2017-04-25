@@ -73,12 +73,13 @@ def on_intent(intent_request, session):
 
     if intent_name == "AMAZON.HelpIntent":
         should_end_session = False
-        speech_output = help()
+        intent_name = 'help'
     elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
-        speech_output = end()
+        intent_name = 'end'
     else:
         intent_name = intent_name.lower()
-        speech_output = responses[intent_name]
+
+    speech_output = responses[intent_name]
 
     return build_response(session_attributes, build_speechlet_response
                           (intent_name,speech_output,reprompt_text,should_end_session))
