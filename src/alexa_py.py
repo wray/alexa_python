@@ -12,7 +12,7 @@ Intents supported:
 """
 
 import logging
-import boto
+import boto3
 import json
 
 logger = logging.getLogger()
