@@ -107,7 +107,5 @@ def lambda_handler(event, context):
     if event['request']['type'] == "LaunchRequest":
         event['request']['intent'] = { 'name':'launch' }
     
-    if event['request']['type'] == "IntentRequest":
-        return on_intent(event['request'], event['session'])
-    else:
-        return help()
+    return on_intent(event['request'], event['session'])
+
