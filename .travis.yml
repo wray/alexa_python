@@ -1,10 +1,10 @@
 language: python
 python:
-  - '2.7'
+  - '3.6'
 script: ./unittests
 deploy:
   provider: lambda
-  function_name: alexaPyTest
+  function_name: alexaS3Test
   region: us-east-1
   role: arn:aws:iam::980316180835:role/lambda_techem_skill
   runtime: python3.6

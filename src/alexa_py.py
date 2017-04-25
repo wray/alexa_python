@@ -12,10 +12,18 @@ Intents supported:
 """
 
 import logging
-import my_py
+import boto
+import json
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
+
+# Load the S3 JSON
+s3 = boto3.resource('s3')
+bucket = s3.Bucket('alexa-python-biz')
+body = bucket.objects['response.json']['Body'].read()
+
+responses = json.parse(body)
 
 
 # --------------- Helpers that build all of the responses ----------------------
@@ -72,7 +80,7 @@ def on_intent(intent_request, session):
         speech_output = end()
     else:
         intent_name = intent_name.lower()
-        speech_output = getattr(my_py,intent_name)()
+        speech_output = responses[intent_name]
 
     return build_response(session_attributes, build_speechlet_response
                           (intent_name,speech_output,reprompt_text,should_end_session))
