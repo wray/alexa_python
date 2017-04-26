@@ -1,6 +1,7 @@
 """
-Simple Python template file allowing users to define intents (convention is lowercase intent
-name from your intentsSchema and Utterances).
+Simple Python template file allowing users to define intent resposnes (convention is lowercase
+intent name from your intentsSchema and Utterances) as a function; leaving all the lambda skill
+service details to the alexa_py.py file.
 
 Intents implemented here for example:
   About
@@ -42,12 +43,10 @@ def help():
     """ Called when the user asks for help
     """
 
-    return build_response({},build_speechlet_response(
-        "ACME Inc.","""<speak>This skill provides some basic information about ACME. You can ask for our location, contact info, and upcoming events.</speak>""","",False)) 
+    return "<speak>This skill provides some basic information about ACME. You can ask for our location, contact info, and upcoming events.</speak>"
 
 
 def end():
 
-    return "Thank you for asking about our business. " \
-      "Have a nice day! "
+    return "<speak.Thank you for asking about our business. Have a nice day! </speak>"
 

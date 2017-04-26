@@ -1,12 +1,41 @@
 """
-Simple Python Lambda service providing example for a small business "voice site". You know,
-this is like the Alexa version of your web site.
+Simple Python Lambda service that uses a simplified my_py.py file to provide simple
+responses to simple "fact"-like intents. The example my_py.py with this repo supports
+the following:
 
 Intents supported:
-  Amazon.HelpIntent
-  About
-  Contact
-  Upcoming
+
+  Custom:
+    About
+    Contact
+    Upcoming
+
+  Required:
+    LaunchRequest (request type that calls launch function in my_py)
+    AMAZON.HelpIntent (intent that calls help function in my_py)
+    AMAZON.CancelIntent or AMAZON.StopIntent (intent, both use end function in my_py)
+
+Note, that as long as you keep your intents in sync with your skill intentSchema, you can
+simply update or add intents as functions to the my_py.py and the lambda service will use them.
+Intents in your Schema may be mixed case -- this code will convert to lower case.
+
+Furthermore, using this template will make it easier to make an external API call or DB call
+to form the response. If you want to stick to simply updating text, you can try out the S3
+branch where you can update the responses in a JSON file (no code).
+
+Further note, there is .travis.yml in this repo that does two things:
+  1) Deploys this code to your configured lambda function.
+  2) Deploys the ../responses/response.json to your bucket.
+
+If you fork this repo or create your own copy and keep it as a public repo, you can use
+Travis to deploy to your lambda. You'll want to change the following configs:
+
+  in deploy-provider: lambda
+    function_name
+    role
+    access_key_id (available from AWS console)
+    secret_access_key (also available from AWS console, but make sure you use travis command
+    line to encrypt your key)
 
 
 """
@@ -49,6 +78,9 @@ def build_response(session_attributes, speechlet_response):
     }
 
 
+# Function which delegates the speech output for the response based on the JSON file.
+# Simply looking up the intent in the responses map created from the parsed JSON.
+#
 def on_intent(intent_request, session):
     """ Called when the user specifies an intent for this skill """
 
@@ -59,20 +91,24 @@ def on_intent(intent_request, session):
     intent_name = intent_request['intent']['name']
 
     # Dispatch to your skill's intent handlers
-
-    session_attributes = {}
-    reprompt_text = None
+    session_attributes = {} # No session attributes needed for simple fact response
+    reprompt_text = None # No reprompt text set
     speech_output = ""
-    should_end_session = True
+    should_end_session = True # Can end session after fact is returned (no additional dialogue)
 
-    if intent_name == "AMAZON.HelpIntent":
-        should_end_session = False
-        speech_output = help()
+    if intent_name == "launch":
+        should_end_session = False # Opening a skill requires the session remain open
+    elif intent_name == "AMAZON.HelpIntent":
+        should_end_session = False # Asking for help requires the session remain open
+        intent_name = 'help'
     elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
-        speech_output = end()
+        intent_name = 'end'
     else:
         intent_name = intent_name.lower()
-        speech_output = getattr(my_py,intent_name)()
+
+    # Grab the response specified for the given intent of the JSON by calling
+    # the function defined in my_py
+    speech_output = getattr(my_py,intent_name)()
 
     return build_response(session_attributes, build_speechlet_response
                           (intent_name,speech_output,reprompt_text,should_end_session))
@@ -95,10 +131,10 @@ def lambda_handler(event, context):
     #         "amzn1.echo-sdk-ams.app.[unique-value-here]"):
     #     raise ValueError("Invalid Application ID")
 
+    # I am injecting a new "intent" type of launch in order to
+    # allow my_py to provide the response text for a LaunchRequest
     if event['request']['type'] == "LaunchRequest":
-        event['request']['intent']['name'] = 'launch'
+        event['request']['intent'] = { 'name':'launch' }
     
-    if event['request']['type'] == "IntentRequest":
-        return on_intent(event['request'], event['session'])
-    else:
-        return help()
+    return on_intent(event['request'], event['session'])
+
