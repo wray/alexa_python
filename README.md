@@ -71,6 +71,5 @@ Travis to deploy to your lambda. You'll want to change the following configs:
   * function_name
   * role
   * access_key_id (available from AWS console)
-  * secret_access_key (also available from AWS console, but make sure you use travis command
-  * line to encrypt your key)
+  * secret_access_key (also available from AWS console, but make sure you use travis command line to encrypt your key)
 
