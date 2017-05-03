@@ -18,5 +18,5 @@ Upcoming What next
 AboutUs information about {aboutus_slot}
 AboutUs tell me about {aboutus_slot}
 AboutUs who is {aboutus_slot}
-AboutUs details on [aboutus_slot]
+AboutUs details on {aboutus_slot}
 AboutUs about {aboutus_slot}
