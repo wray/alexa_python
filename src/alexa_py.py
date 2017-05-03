@@ -104,7 +104,7 @@ def on_intent(intent_request, session):
     # Dispatch to your skill's intent handlers
     session_attributes = {} # No session attributes needed for simple fact responses
     reprompt_text = None # No reprompt text set
-    speech_output = ""
+    speech_output = "<ssml>Unable to parse provided response file</ssml>"
     should_end_session = True # Can end session after fact is returned (no additional dialogue)
 
     if intent_name == 'launch':
@@ -118,7 +118,18 @@ def on_intent(intent_request, session):
         intent_name = intent_name.lower()
 
     # Grab the response specified for the given intent in the JSON
-    speech_output = responses[intent_name]
+    # The JSON may contain multiple responses for a single intent, further keyed
+    # by some passed in parameter
+    intent_resp = responses[intent_name]
+
+    if isinstance(intent_resp,dict):
+        try:
+            intent_slot = intent['slots'][intent_name+'_slot']['value'].lower()
+            speech_output = intent_resp[intent_slot]
+        except:
+            pass
+    else:
+        speech_output = responses[intent_name]
 
     return build_response(session_attributes, build_speechlet_response
                           (intent_name,speech_output,reprompt_text,should_end_session))

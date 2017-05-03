@@ -11,6 +11,16 @@
     },
     {
       "intent": "Upcoming"
+    },
+    {
+	"intent": "AboutUs",
+	"slots": [
+	    {
+		"name": "aboutus_slot",
+		"type": "LIST_OF_EMPLOYEES"
+	    }
+	]
     }
+	
   ]
 }
