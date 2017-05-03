@@ -51,11 +51,12 @@ import json
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-# Load the S3 JSON
-s3 = boto3.resource('s3')
-# Grab the JSON from the file and load it into a map
-json_string = s3.Object(BUCKET_NAME,RESPONSE_JSON).get()['Body'].read().decode('utf-8')
-responses = json.loads(json_string)
+# Load the responses from Dynamo
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('smallbiz_intents')
+responses = table.scan()
+
+logger.info(intents)
 
 
 # --------------- Helpers that build all of the responses ----------------------
@@ -117,10 +118,10 @@ def on_intent(intent_request, session):
     else:
         intent_name = intent_name.lower()
 
-    # Grab the response specified for the given intent in the JSON
-    # The JSON may contain multiple responses for a single intent, further keyed
+    # Grab the response specified for the given intent from the DB
+    # The record may contain multiple responses for a single intent, further keyed
     # by some passed in parameter
-    intent_resp = responses[intent_name]
+    intent_resp = responses['Items'][intent_name]
 
     if isinstance(intent_resp,dict):
         try:
