@@ -47,6 +47,7 @@ RESPONSE_JSON='response.json'
 import logging
 import boto3
 import json
+from boto3.dynamodb.conditions import Key
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
