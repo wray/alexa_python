@@ -121,7 +121,7 @@ def on_intent(intent_request, session):
     # by some passed in parameter
     intent_resp = table.query(
         KeyConditionExpression=Key('intent').eq(intent_name)
-        )['Items'][0]
+        )['Items'][0]['response']
 
     logger.info(intent_resp)
     
