@@ -33,16 +33,10 @@ Travis to deploy to your lambda/S3. You'll want to change the following configs:
     secret_access_key (also available from AWS console, but make sure you use travis command
     line to encrypt your key)
 
-  in deploy-provider: s3
-    bucket (if you have changed it)
-    access_key_id (can use the same one as above)
-    secret_access_key (also use the same one as above)
-
 """
 
-# If you want to use a different bucket name or response JSON file, change them here
-BUCKET_NAME='alexa-python-biz'
-RESPONSE_JSON='response.json'
+# If you want to use a different table name, change it here
+TABLE_NAME='smallbiz_intents'
 
 import logging
 import boto3
@@ -54,7 +48,7 @@ logger.setLevel(logging.INFO)
 
 # Load the responses from Dynamo
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('smallbiz_intents')
+table = dynamodb.Table(TABLE_NAME)
 
 
 # --------------- Helpers that build all of the responses ----------------------
