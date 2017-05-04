@@ -103,7 +103,7 @@ def on_intent(intent_request, session):
     # Dispatch to your skill's intent handlers
     session_attributes = {} # No session attributes needed for simple fact responses
     reprompt_text = None # No reprompt text set
-    speech_output = "<ssml>Unable to parse provided response file</ssml>"
+    speech_output = "<ssml>Unable to parse dynamo provided response</ssml>"
     should_end_session = True # Can end session after fact is returned (no additional dialogue)
 
     if intent_name == 'launch':
@@ -121,6 +121,8 @@ def on_intent(intent_request, session):
     # by some passed in parameter
     intent_resp = table.query(KeyConditionExpression=Key('intent').eq(intent_name))
 
+    logger.info(intent_resp)
+    
     if isinstance(intent_resp,dict):
         try:
             intent_slot = intent['slots'][intent_name+'_slot']['value'].lower()
