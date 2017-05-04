@@ -132,7 +132,7 @@ def on_intent(intent_request, session):
         except:
             pass
     else:
-        speech_output = responses[intent_name]
+        speech_output = intent_resp
 
     return build_response(session_attributes, build_speechlet_response
                           (intent_name,speech_output,reprompt_text,should_end_session))
