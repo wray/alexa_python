@@ -54,9 +54,6 @@ logger.setLevel(logging.INFO)
 # Load the responses from Dynamo
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('smallbiz_intents')
-responses = table.scan()
-
-logger.info(intents)
 
 
 # --------------- Helpers that build all of the responses ----------------------
@@ -121,7 +118,7 @@ def on_intent(intent_request, session):
     # Grab the response specified for the given intent from the DB
     # The record may contain multiple responses for a single intent, further keyed
     # by some passed in parameter
-    intent_resp = responses['Items'][intent_name]
+    intent_resp = table.query(KeyConditionExpression=Key('intent').eq(intent_name))
 
     if isinstance(intent_resp,dict):
         try:
