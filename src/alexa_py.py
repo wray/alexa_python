@@ -119,7 +119,9 @@ def on_intent(intent_request, session):
     # Grab the response specified for the given intent from the DB
     # The record may contain multiple responses for a single intent, further keyed
     # by some passed in parameter
-    intent_resp = table.query(KeyConditionExpression=Key('intent').eq(intent_name))
+    intent_resp = table.query(
+        KeyConditionExpression=Key('intent').eq(intent_name)
+        )['Items'][0]
 
     logger.info(intent_resp)
     
