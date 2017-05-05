@@ -4,7 +4,7 @@ python:
 script: ./unittests
 deploy:
   - provider: lambda
-    function_name: alexaDynamoTest
+    function_name: alexaPyPiTest
     region: us-east-1
     role: arn:aws:iam::980316180835:role/lambda_techem_skill
     runtime: python3.6
