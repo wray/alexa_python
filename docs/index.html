@@ -24,12 +24,13 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-			 <section data-transition="zoom" data-markdown data-separator="^\n---\n$">
+			 <section data-transition="zoom" data-markdown data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
 			  <script type="text/template">
 
 
-## If you give a developer a Dot
-
+<!-- .slide: data-background-image="images/blue_columbusoh.png" -->
+### If you give a Developer a Dot
+---
 Brought to you by Wray Mills
 
 Powered By CapTech Consulting
@@ -45,19 +46,153 @@ Powered By CapTech Consulting
 * Python for almost 25 years!
 * Now focused on teaching (including kids)
 
+<aside class="notes">
+		Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+</aside>
+
 
 ---
 
 
-## So, a Developer gets a Dot
+<!-- .slide: data-background="#ff0000" -->
+### So, a Developer gets a Dot
 
-Quick Alexa/Amazon overview
+*Quick Alexa/Amazon overview*
 ---
-* ASK, Vs
+* ASK and AVS
 * Echo, Tap, Dot
 * [Developer.amazon.com](developer.amazon.com)
 * [AWS.amazon.com](aws.amazon.com)
 
+
+---
+
+
+### Developing a skill requires
+
+* Amazon Developer Account
+* Amazon Console Account
+ * Or some way to deploy web service
+* Alexa enabled device
+ * Can be Reverb on Phone
+
+
+---
+
+
+### Intents and Utteraneces
+
+* Go to Developer account -> Alexa and create a skill
+* Invocation Name
+* Must Define your "intents"
+
+
+--
+
+
+* Define "utterances" that are the phrases to match to intents
+* Alexa, ask [or tell] {invocation name} [for] {intent}
+* Alexa, ask 'Small Biz' for Upcoming Events
+
+
+---
+
+
+### Provide a service
+
+
+---
+
+
+### Point to the service
+
+
+---
+
+
+### Test
+
+
+
+---
+
+
+### Basic Example, "Tech Em"
+
+Copy and paste
+
+
+
+---
+
+
+### Enhanced teaching Example
+
+deploy
+
+
+---
+
+
+### Persist some data
+
+s3
+
+
+--
+
+
+diagram
+
+
+---
+
+
+### Bump up to a db
+
+dynamo
+
+
+---
+
+
+### Build a Service
+
+for API Gateway
+
+
+
+---
+
+
+### Deploy Together
+
+
+---
+
+
+### As projects get bigger
+
+* Can separate CRUD Service
+* Reuse API access layer
+
+
+--
+
+
+diagram
+
+
+---
+
+
+## So
+
+* Create a skill this weekend
+* Create one with your family/kids
+
+
+```x = 1```
 
 
 </script>
@@ -74,6 +209,8 @@ Quick Alexa/Amazon overview
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				// Display the page number of the current slide
+				slideNumber: true,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
