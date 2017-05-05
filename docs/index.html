@@ -35,6 +35,9 @@ Brought to you by Wray Mills
 
 Powered By [CapTech Consulting](https://www.captechconsulting.com)
 
+<br /><br /><br /><br /><br /><br />
+<img height="40px" style="border:none" src="images/captech_logo.png" />
+
 			  
 ---
 
@@ -48,7 +51,7 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 * Python for almost 25 years!
 * Consultant for CapTech Consulting
 * Now focused on teaching (including kids)
- * Python is my 10 year olds favorite language
+ * My own kids know Python
 
 <aside class="notes">
 		Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
@@ -56,6 +59,20 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 
 
 ---
+
+
+<!-- .slide: data-background="#ff0000" -->
+### Developing a skill requires
+
+* Amazon Developer Account
+* Amazon Console Account
+ * Or some way to deploy web service
+* Alexa enabled device (e.g. a Dot)
+ * Can be Reverb on Phone
+
+
+---
+
 
 <!-- .slide: data-background-image="images/BabyGrootCookie01.jpg" -->
 ### So, a Developer gets a Dot
@@ -68,17 +85,10 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 * [AWS.amazon.com](aws.amazon.com)
 
 
----
+--
 
 
-<!-- .slide: data-background="#ff0000" -->
-### Developing a skill requires
-
-* Amazon Developer Account
-* Amazon Console Account
- * Or some way to deploy web service
-* Alexa enabled device
- * Can be Reverb on Phone
+<img height="350px" src="images/alexa-family.jpg" />
 
 
 ---
@@ -87,35 +97,93 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 ### Intents and Utterances
 
 * Go to Developer account, Alexa tab, ASK
-* Create a skill
+* Create a skill (Small Business site - ACME, Inc.)
 * Invocation Name
-* Must Define your "intents"
 
 
 --
 
 
+<img src="images/ask.jpeg" />
+
+
+--
+
+
+<img src="images/skills.jpeg" />
+
+
+--
+
+* Must Define your "intents"
 * Define "utterances" that are the phrases to match to intents
 * Alexa, ask [or tell] {invocation name} [for] {intent}
-* Alexa, ask 'Small Biz' for Upcoming Events
+* Alexa, ask 'Small Biz' for General Information
+
+
+--
+
+
+<img src="images/name.jpeg" />
+
+
+--
+
+
+<img src="images/intent.jpeg" />
 
 
 ---
 
 
 ### Provide a service
+---
+* Yes, finally getting to the serverless part
+* You can create your own web service to handle the ASK JSON request/response
+* But, the point for my talk is to use this as an opportunity to try lambda services
+* Go ahead and get started doing things manually
 
 
 ---
 
 
 ### Point to the service
+---
+* Now, that you have a service, go back to the developer tab
+* Copy in the ARN for your lambda
 
 
 ---
 
 
 ### Test
+---
+#### Three ways to test
+
+
+--
+
+
+* From the developer Console
+ * Can examine the JSON in and out!
+
+
+--
+
+
+* From the AWS lambda console
+ * You'll likely end up there anyway if your skill fails
+ * Examine cloud watch logs (simple errors prevent any JSON sent back)
+ * Either use the test config Alexa JSON or use the input JSON from developer
+
+
+--
+
+
+* From your device
+ * Your skill is immediately available to your account
+ * If you don't have a device, use reverb or [echoism.io](https://echoism.io)
+
 
 
 
@@ -217,13 +285,18 @@ diagram
 
 
 
-## So
+<!-- .slide: data-background="#0000ff" -->
+### So... (get your cameras out)
 
 * Create a skill this weekend
 * Create one with your family/kids
-
-
-```x = 1```
+* All materials for this talk here: [https://github.com/wray/alexa_python](https://github.com/wray/alexa_python)
+ * Open for issues,comments, forks and PRs 
+* Also go here: [https://github.com/alexa](https://github.com/alexa)
+* And don't forget here: [https://travis-ci.org](https://travis-ci.org)
+* And, here: [https://serverless.com](https://servless.com)
+* Tweet me @wahwray
+* Questions?
 
 
 </script>
