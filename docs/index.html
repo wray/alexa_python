@@ -141,7 +141,13 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 * Yes, finally getting to the serverless part
 * You can create your own web service to handle the ASK JSON request/response
 * But, the point for my talk is to use this as an opportunity to try lambda services
-* Go ahead and get started doing things manually
+* Recommend, you go ahead and get started doing things manually
+
+
+--
+
+
+<img src="images/lambda.jpeg" />
 
 
 ---
@@ -151,6 +157,12 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 ---
 * Now, that you have a service, go back to the developer tab
 * Copy in the ARN for your lambda
+
+
+--
+
+
+<img src="images/arn.jpeg" />
 
 
 ---
@@ -166,6 +178,7 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 
 * From the developer Console
  * Can examine the JSON in and out!
+<img src="images/dev-test.jpeg" />
 
 
 --
@@ -175,6 +188,12 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
  * You'll likely end up there anyway if your skill fails
  * Examine cloud watch logs (simple errors prevent any JSON sent back)
  * Either use the test config Alexa JSON or use the input JSON from developer
+
+
+--
+
+
+<img src="images/lambda-test.jpeg" />
 
 
 --
@@ -190,55 +209,170 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 ---
 
 
-### Basic Example, "Tech Em"
+#### Basic Example, "Tech Em" (techem branch)
+##### This is the actual code for a basic published skill
+---
+#### Copy and paste deployment
+* There is a convention for alexa github projects
+ * Copy speechAssets/intents.json into your intents
+ * Copy speechAssets/utterances.txt into your utterances
+ * Copy speechAssets/{slot_type}.txt into your custom slot type (explained later)
+ * Copy src/index.[py,js] into your lambda function
 
-Copy and paste
 
+--
+
+
+* So, essentially have three tabs open: developer, aws console, and github
+* git speech Assets -> developer
+
+<img src="images/git-intent.jpeg" />
+
+
+--
+
+
+* git src -> lambda
+* This example simply "hard codes" the responses
+<img src="images/techem.jpeg" />
+
+
+---
+
+
+<!-- .slide: data-background="#ff0000" -->
+### Have a skill running minutes
+---
+* Use any of the many examples at https://github.com/alexa
+* When creating a lambda funcion, you can use an alexa blueprint that matches the github repo and have a skill in 5 minutes!
+* Great walkthrough for Node - Fact Skill: https://github.com/alexa/skill-sample-nodejs-fact - updated with new skill builder
+* Or use my https://github.com/alexa_python techem branch for Python
 
 
 ---
 
 
 ### Enhanced teaching Example
+#### Still need to copy and paste speechAssets to developer
+---
+* But, let's make the lambda deployment a little better
+* While also simplifying the code if you have a new Python developer
+* Hello travis-ci
 
-deploy
+
+--
+
+
+* On the master branch, we have separated functions
+* One basic Python function per intent
+* Focus on simple intent/response skill
+* Now that we have two Python files, we would have to zip and upload
+* We leverage Travis to do that!
+
+<img src="images/travis.jpg" />
+
+
+--
+
+
+<img src="images/my_py.jpeg" />
+
+
+--
+
+
+* Push to master and travis deploys
+* Adding an intent to the service, is as simple as adding a function
+* Still need to sync up with the developer intent schema
+<img src="images/travis-yml.jpeg" />
 
 
 ---
 
 
 ### Persist some data
-
-s3
+---
+* Ok, that was still hard coding, so let's use a data file
+* We'll use a JSON file in S3, source in reponses directory
+* We'll deploy the lambda and the S3 Together
+* And, sneaking in a "slot"
 
 
 --
 
 
-diagram
+* Slots are like parameters for your skills
+* Alexa, Ask Small Biz who is {employee}
+<img src="images/slot.jpeg" />
+
+
+--
+
+
+* In most situations, one would name the slot something meaningful, like employee
+* However, this lambda can be reused for any intents and slots based on JSON convention
+* Thus, we still have to keep intents, utterances, and now custom slot types in sync with the service
+* Keeping in the same project helps
+* Can update by deploying new S3 from local, or updating the S3 directly in your bucket
+
+
+--
+
+
+<img src="images/s3.jpeg" />
+
+
+--
+
+
+<img src="images/travis-s3.jpeg" />
 
 
 ---
 
 
-### Bump up to a db
+### Bump up to a db (dynamo branch)
+---
+* Ok, let's put this in a db.
+* Everything is pretty dynamic, so once deployed, can keep intents and slots in sync between developer and dynamo db
 
-dynamo
+
+--
+
+
+<img src="images/dynamo.jpeg" />	
 
 
 ---
 
 
 ### Build a Service
-
-for API Gateway
-
-
-
 ---
+* Now, suppose you start building out some REST services in front of your db
+* You can leverage Travis to deploy the same code to two different lambda functions
+* One is triggered by API Gateway and the other is triggered by ASK
+* Simple interrogation of the lambda_handler event to decipher ASK JSON vs. API JSON
+
+
+
+--
 
 
 ### Deploy Together
+---
+* So, you can ensure your code is in sync.
+* Can use custom CRUD or even use the python dyanamo blueprint
+
+
+--
+
+
+<img src="images/topics.jpeg" />
+
+
+--
+
+<img src="images/d-blueprint.jpeg" />
 
 
 ---
@@ -248,12 +382,17 @@ for API Gateway
 
 * Can separate CRUD Service
 * Reuse API access layer
+* Deploy to PyPi to be reused on devices or test environments
+ * We use PyPi as a means to deploy to Raspberry Pis
+ * Can help with independent black box testing
+
+<img src="images/pypi.jpg" />
 
 
 --
 
 
-diagram
+<img src="images/diagram.jpeg" />
 
 
 ---
@@ -279,24 +418,42 @@ diagram
  * Reuse pypi module via serverless for API
 * If you get serious, try out your own (and let me know)
 * And don't forget the testing!!
+* And there is also handling of ASK session for deep dialogues
+* We are adding a deep decision tree example drive by dynamo which heavily leverages session
+* And, just have fun with it!!
+
+
+
+--
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LsS_WEdYiuA" frameborder="0" allowfullscreen></iframe>
 
 
 ---
 
 
+### Some parting thoughts
+---
+* Have fun on the serverless side and use alexa skills as the carrot on a stick to learn more about severless
+* Build a service on Azure called by ASK
+* But, don't discount this new world of VUI
+* Thinking through new skills by starting with your vision for the dialogue is a new and exciting design problem
+* And go ahead and publish skills! Check out the Amazon developer site for more info on swag you can get for publishing!
+
 
 <!-- .slide: data-background="#0000ff" -->
 ### So... (get your cameras out)
 
-* Create a skill this weekend
-* Create one with your family/kids
+* Create a skill this weekend with your friends/family/kids
 * All materials for this talk here: [https://github.com/wray/alexa_python](https://github.com/wray/alexa_python)
  * Open for issues,comments, forks and PRs 
 * Also go here: [https://github.com/alexa](https://github.com/alexa)
 * And don't forget here: [https://travis-ci.org](https://travis-ci.org)
 * And, here: [https://serverless.com](https://servless.com)
-* Tweet me @wahwray
-* Questions?
+* And this: http://flask.pocoo.org/
+* https://developer.amazon.com, https://aws.amazon.com, https://alexa.amazon.com
+* Questions? More Questions, tweet me @wahwray
 
 
 </script>
