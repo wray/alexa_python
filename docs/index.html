@@ -98,7 +98,6 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 
 * Go to Developer account, Alexa tab, ASK
 * Create a skill (Small Business site - ACME, Inc.)
-* Invocation Name
 
 
 --
@@ -115,6 +114,7 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 
 --
 
+* Invocation Name
 * Must Define your "intents"
 * Define "utterances" that are the phrases to match to intents
 * Alexa, ask [or tell] {invocation name} [for] {intent}
@@ -141,7 +141,7 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 * Yes, finally getting to the serverless part
 * You can create your own web service to handle the ASK JSON request/response
 * But, the point for my talk is to use this as an opportunity to try lambda services
-* Recommend, you go ahead and get started doing things manually
+* Recommend that you go ahead and get started doing things manually
 
 
 --
@@ -186,7 +186,7 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 
 * From the AWS lambda console
  * You'll likely end up there anyway if your skill fails
- * Examine cloud watch logs (simple errors prevent any JSON sent back)
+ * Examine cloud watch logs (simple errors prevent JSON return)
  * Either use the test config Alexa JSON or use the input JSON from developer
 
 
@@ -210,9 +210,9 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 
 
 #### Basic Example, "Tech Em" (techem branch)
-##### This is the actual code for a basic published skill
+##### Copy and paste deployment
 ---
-#### Copy and paste deployment
+* This is the actual code for a basic published skill
 * There is a convention for alexa github projects
  * Copy speechAssets/intents.json into your intents
  * Copy speechAssets/utterances.txt into your utterances
@@ -241,7 +241,7 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 
 
 <!-- .slide: data-background="#ff0000" -->
-### Have a skill running minutes
+### Have a skill running in minutes
 ---
 * Use any of the many examples at https://github.com/alexa
 * When creating a lambda funcion, you can use an alexa blueprint that matches the github repo and have a skill in 5 minutes!
@@ -253,8 +253,8 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 
 
 ### Enhanced teaching Example
-#### Still need to copy and paste speechAssets to developer
 ---
+* Still need to copy and paste speechAssets to developer
 * But, let's make the lambda deployment a little better
 * While also simplifying the code if you have a new Python developer
 * Hello travis-ci
@@ -282,8 +282,8 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 
 
 * Push to master and travis deploys
-* Adding an intent to the service, is as simple as adding a function
-* Still need to sync up with the developer intent schema
+* Add a function to add an intent to the service 
+* Still need to sync with the intent schema
 <img src="images/travis-yml.jpeg" />
 
 
@@ -291,6 +291,7 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 
 
 ### Persist some data
+#### S3 branch
 ---
 * Ok, that was still hard coding, so let's use a data file
 * We'll use a JSON file in S3, source in reponses directory
@@ -331,7 +332,8 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 ---
 
 
-### Bump up to a db (dynamo branch)
+### S3 to Dynamo
+#### dynamo branch
 ---
 * Ok, let's put this in a db.
 * Everything is pretty dynamic, so once deployed, can keep intents and slots in sync between developer and dynamo db
@@ -379,7 +381,7 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 
 
 ### As projects get bigger
-
+---
 * Can separate CRUD Service
 * Reuse API access layer
 * Deploy to PyPi to be reused on devices or test environments
@@ -419,7 +421,7 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 * If you get serious, try out your own (and let me know)
 * And don't forget the testing!!
 * And there is also handling of ASK session for deep dialogues
-* We are adding a deep decision tree example drive by dynamo which heavily leverages session
+* We are adding a deep decision tree example driven by dynamo which heavily leverages session
 * And, just have fun with it!!
 
 
@@ -435,9 +437,9 @@ Powered By [CapTech Consulting](https://www.captechconsulting.com)
 
 ### Some parting thoughts
 ---
-* Have fun on the serverless side and use alexa skills as the carrot on a stick to learn more about severless
+* Have fun and use alexa skills as the carrot on a stick to learn more severless
 * Build a service on Azure called by ASK
-* But, don't discount this new world of VUI
+* And don't discount this new world of VUI
 * Thinking through new skills by starting with your vision for the dialogue is a new and exciting design problem
 * And go ahead and publish skills! Check out the Amazon developer site for more info on swag you can get for publishing!
 
