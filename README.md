@@ -1,6 +1,6 @@
 # Build an Alexa Skill using basic Python functions
 
-(https://travis-ci.org/wray/alexa_python.svg?branch=master "build-status")
+![build-status](https://travis-ci.org/wray/alexa_python.svg?branch=master "build-status")
 
 ## What You Will Learn
 
