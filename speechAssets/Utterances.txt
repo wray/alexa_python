@@ -1,22 +1,7 @@
-About About
-About Information
-About General Information
-About General Info
-About Details
-Contact Contact
-Contact Contact Us
-Contact Location
-Contact Address
-Contact Phone Number
-Contact Web Address
-Contact Email Address
-Upcoming Upcoming
-Upcoming Upcoming Events
-Upcoming Specials
-Upcoming Coming Up
-Upcoming What next
-AboutUs information about {aboutus_slot}
-AboutUs tell me about {aboutus_slot}
-AboutUs who is {aboutus_slot}
-AboutUs details on {aboutus_slot}
+Financial finance tip
+Insurance insurance tip
+Auto auto tip
+Time time tip
+Food food tip
+Household home tip
 

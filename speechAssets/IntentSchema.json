@@ -4,23 +4,24 @@
       "intent": "AMAZON.HelpIntent"
     },
     {
-      "intent": "About"
+      "intent": "Financial"
     },
     {
-      "intent": "Contact"
+      "intent": "Insurance"
     },
     {
-      "intent": "Upcoming"
+      "intent": "Auto"
     },
     {
-	"intent": "AboutUs",
-	"slots": [
-	    {
-		"name": "aboutus_slot",
-		"type": "LIST_OF_EMPLOYEES"
-	    }
-	]
+      "intent": "Time"
+    },
+    {
+      "intent": "Food"
+    },
+    {
+      "intent": "Household"
     }
+
 	
   ]
 }
