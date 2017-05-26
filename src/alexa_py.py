@@ -1,7 +1,7 @@
 """
 Simple Python Lambda service that uses response.json file in an S3 bucket to provide simple
 responses to simple "fact"-like intents. The example response.json with this repo supports
-thes following:
+the following:
 
 Intents supported:
 
@@ -47,7 +47,6 @@ RESPONSE_JSON='response.json'
 import logging
 import boto3
 import json
-
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
