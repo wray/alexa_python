@@ -1,5 +1,5 @@
 {
-    "financial": "<speak>If you are paid as a 1099 contractor, do not forget to set aside money for taxes.</speak>",
+    "financial": "<speak>If you are paid as a ten 99 contractor, do not forget to set aside money for taxes.</speak>",
 
     "insurance": "<speak>Do not forget to consider the insurance costs of a vehicle before you purchase. Those super fast nice cars typically come with super high insurance premiums, especially for younger drivers.</speak>",
     
@@ -10,5 +10,12 @@
     "food": "<speak>Do not eat restaurant leftovers that have been in the fridge more than two nights. Three days is ok if you got the food into the fridge quickly, but don't risk it. Food poisoning sucks.</speak>",
 
     "household": "<speak>Do not forget to change your air filters every 3 months. Dirty air filters are not only unhealthy, but can also damage your hvac system prematurely.</speak>"
+
+    "launch": "<speak>Welcome to the 4 1 1 for Adulting. This skill provides tips and advice for young adults. If you are just getting started on your own, you can pick up some helpful information here. Go ahead and ask for a finance tip, an insurance tip, an auto tip, a time management tip, a food tip, or an household tip.</speak>",
+
+    "help": "<speak> If you have just started on your own, come here for advice. Go ahead and ask for a finance tip, an insurance tip, an auto tip, a time management tip, a food tip, or an household tip.</speak>",
+
+    "end": "<speak>Good luck and have a nice day!</speak>"
+
 
 }

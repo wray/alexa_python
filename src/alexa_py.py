@@ -47,6 +47,7 @@ RESPONSE_JSON='response.json'
 import logging
 import boto3
 import json
+import re
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -61,6 +62,9 @@ responses = json.loads(json_string)
 # --------------- Helpers that build all of the responses ----------------------
 
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
+
+    card_output = re.sub('<[^>]*>', '', output)
+
     return {
         'outputSpeech': {
             'type': 'SSML',
@@ -69,7 +73,7 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
         'card': {
             'type': 'Simple',
             'title': title,
-            'content': output
+            'content': card_output
         },
         'reprompt': {
             'outputSpeech': {
