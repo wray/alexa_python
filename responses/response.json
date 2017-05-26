@@ -1,15 +1,15 @@
 {
-    "financial": "<speak>If you are paid as a 1099 contractor, don\'t forget to set aside money for taxes.</speak>",
+    "financial": "<speak>If you are paid as a 1099 contractor, do not forget to set aside money for taxes.</speak>",
 
-    "insurance": "<speak>Don\'t forget to consider the insurance costs of a vehicle before you purchase. Those super fast nice cars typically come with super high insurance premiums, especially for younger drivers.</speak>",
+    "insurance": "<speak>Do not forget to consider the insurance costs of a vehicle before you purchase. Those super fast nice cars typically come with super high insurance premiums, especially for younger drivers.</speak>",
     
     "auto": "<speak>You should check your tire pressure at least once a month. Low tire pressure is not only dangerous, but fuel inefficient.</speak>",
 
     "time" : "<speak>Turn off social media notifications if you really want to get something done.</speak>",
 
-    "food": "<speak>Don\'t eat restaurant leftovers that have been in the fridge more than two nights. Three days is ok if you got the food into the fridge quickly, but don't risk it. Food poisoning sucks.</speak>",
+    "food": "<speak>Do not eat restaurant leftovers that have been in the fridge more than two nights. Three days is ok if you got the food into the fridge quickly, but don't risk it. Food poisoning sucks.</speak>",
 
-    "household": "<speak>Don\'t forget to change your air filters every 3 months. Dirty air filters are not only unhealthy, but can also damage your hvac system prematurely.</speak>",
+    "household": "<speak>Do not forget to change your air filters every 3 months. Dirty air filters are not only unhealthy, but can also damage your hvac system prematurely.</speak>",
 
 
 }
