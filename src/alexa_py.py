@@ -52,7 +52,7 @@ def launch():
     """ Called when the user launches the skill without specifying what they want
     """
 
-    return "<speak>Welcome to the 4 1 1 for my school. This skill provides information about my school, a really cool school located in the Silicon Valley of the South.</speak>"
+    return "<speak>Welcome to the 4 1 1 for my school. This skill provides information about my school, a really cool school located in the Silicon Valley of the South. You can ask for general info, contact info, and upcoming events.</speak>"
 
 
 def help():
