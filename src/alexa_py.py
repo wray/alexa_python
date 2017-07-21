@@ -21,6 +21,7 @@ Intents in your Schema may be mixed case -- this code will convert to lower case
 
 """
 
+import sys
 import logging
 
 logger = logging.getLogger()
@@ -131,7 +132,7 @@ def on_intent(intent_request, session):
 
     # Grab the response specified for the given intent of the JSON by calling
     # the function defined in my_py
-    speech_output = locals()[intent_name]()
+    speech_output = getattr(sys.modules[__name__], intent_name)()
 
     return build_response(session_attributes, build_speechlet_response
                           (intent_name,speech_output,reprompt_text,should_end_session))
