@@ -1,7 +1,6 @@
 """
-Simple Python Lambda service that uses a simplified my_py.py file to provide simple
-responses to simple "fact"-like intents. The example my_py.py with this repo supports
-the following:
+Simple Python Lambda service that provides simple responses to simple "fact"-like intents.
+This file supports the following:
 
 Intents supported:
 
@@ -11,45 +10,69 @@ Intents supported:
     Upcoming
 
   Required:
-    LaunchRequest (request type that calls launch function in my_py)
-    AMAZON.HelpIntent (intent that calls help function in my_py)
-    AMAZON.CancelIntent or AMAZON.StopIntent (intent, both use end function in my_py)
+    LaunchRequest (request type that calls launch function)
+    AMAZON.HelpIntent (intent that calls help function)
+    AMAZON.CancelIntent or AMAZON.StopIntent (intent, both use end function)
 
-Note, that as long as you keep your intents in sync with your skill intentSchema, you can
-simply update or add intents as functions to the my_py.py and the lambda service will use them.
+Note, that as long as you keep your intents are in sync with your skill intentSchema, you can
+simply update or add intents as functions here and the lambda service will use them.
 Intents in your Schema may be mixed case -- this code will convert to lower case.
-
-Furthermore, using this template will make it easier to make an external API call or DB call
-to form the response. If you want to stick to simply updating text, you can try out the S3
-branch where you can update the responses in a JSON file (no code).
-
-Further note, there is .travis.yml in this repo that does two things:
-  1) Deploys this code to your configured lambda function.
-  2) Deploys the ../responses/response.json to your bucket.
-
-If you fork this repo or create your own copy and keep it as a public repo, you can use
-Travis to deploy to your lambda. You'll want to change the following configs:
-
-  in deploy-provider: lambda
-    function_name
-    role
-    access_key_id (available from AWS console)
-    secret_access_key (also available from AWS console, but make sure you use travis command
-    line to encrypt your key)
 
 
 """
 
 import logging
-import my_py
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 
+
+import logging
+
+# **************************** CUSTOMIZE BELOW *************************************************
+
+# --------------- Your functions that implement your intents ------------------
+
+def about():
+    return "<speak>Welcome to My School. We are the coolest school located in the Silicon Valley of the South. We love our students, staff, teachers and the community.</speak>"
+
+def contact():
+    return "<speak>The best way to reach us is at info at my school dot E D U. You can also leave us voice mail at 8 0 4, 5 5 5, 1 2 1 2. We are also on twitter, at my school.</speak>"
+
+def upcoming():
+    return "<speak>The Full Steam Ahead is Friday, July twenty first.</speak>"
+
+
+# --------------- Primary/Required functions (update as needed) ------------------
+
+def launch():
+    """ Called when the user launches the skill without specifying what they want
+    """
+
+    return "<speak>Welcome to the 411 for my school. This skill provides information about my school, a really cool school located in the Silicon Valley of the South.</speak>"
+
+
+def help():
+    """ Called when the user asks for help
+    """
+
+    return "<speak>This skill provides some basic information about my school. You can ask about us, contact info, and upcoming events.</speak>"
+
+
+def end():
+
+    return "<speak.Thank you for asking about my school. Have a nice day! </speak>"
+
+
+# ***************************** CUSTOMIZE ABOVE **************************************************
+
 # --------------- Helpers that build all of the responses ----------------------
 
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
+
+    card_output = re.sub('<[^>]*>', '', output)
+    
     return {
         'outputSpeech': {
             'type': 'SSML',
@@ -58,7 +81,7 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
         'card': {
             'type': 'Simple',
             'title': title,
-            'content': output
+            'content': card_output
         },
         'reprompt': {
             'outputSpeech': {
@@ -108,7 +131,7 @@ def on_intent(intent_request, session):
 
     # Grab the response specified for the given intent of the JSON by calling
     # the function defined in my_py
-    speech_output = getattr(my_py,intent_name)()
+    speech_output = locals()[intent_name]()
 
     return build_response(session_attributes, build_speechlet_response
                           (intent_name,speech_output,reprompt_text,should_end_session))
