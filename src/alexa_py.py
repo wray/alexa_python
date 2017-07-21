@@ -22,6 +22,7 @@ Intents in your Schema may be mixed case -- this code will convert to lower case
 """
 
 import sys
+import re
 import logging
 
 logger = logging.getLogger()
