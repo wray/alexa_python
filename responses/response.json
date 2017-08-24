@@ -1,15 +1,15 @@
 {
-    "financial": "<speak>You may not be thinking of retirement, but contributing to retirement accounts now is the key to taking advantage of compounding interest! You should contribute as much as you can afford to ensure an awesome retirement.</speak>",
+    "financial": "<speak>Do you have a home office? Do you freelance? Don't forget to save all your home office related receipts for potential tax deductions.</speak>",
 
-    "insurance": "<speak>Health insurance companies are doing more and more to encourage healthy lifestyles. Check with your provider to see what benefits you may already have to help offset the costs of gym memberships and or personal trainers.</speak>",
+    "insurance": "<speak>Investing in good, quality food and regular exercise is the best way to insure yourself against future health problems.</speak>",
     
-    "auto": "<speak>If your commute is short, less than 20 minutes, make sure you take your car out on a longer drive at least once a week. Short drives don't get the drivetrain up to optimal temperatures and can therefore be harmful to the system.</speak>",
+    "auto": "<speak>Oil changes are one of the most important things you can do for preventative maintenance and you can ask your mechanic to show you your old filter to ensure the filter has actually been replaced.</speak>",
 
-    "time" : "<speak>It may be counter-intuitive, but a great way to save time is to exercise on a regular schedule. Making time for exercise will motivate you to get more done so you have the time to exercise and the exercise will give you more energy.</speak>",
+    "time" : "<speak>If you break out your day into 30 minute chunks, you will be more realistic about your daily goals.</speak>",
 
-    "food": "<speak>If you drink soda, consider trying kombucha instead. Kombucha has that carbonated feel, but is so much better for you. You can also get it on tap - refilling a kombucha growler is much better for the environment than all those empty plastic soda bottles.</speak>",
+    "food": "<speak>When shopping, try to avoid things that your great-grandparents would not recognize as food. Put simply, mimimize anything processed.</speak>",
 
-    "household": "<speak>Instead of harsh chemicals for sanitizing, try vinegar. Sure, it has a pungent odor, but the odor is temporary and it is a much more natural way of disinfecting -- especially in the kitchen.</speak>",
+    "household": "<speak>Vinegar and baking soda are not just effective for science fair volcanoes, but are useful agents to clean pots, pans and even the kitchen sink.</speak>",
 
     "launch": "<speak>Welcome to the 4 1 1 for Adulting. This skill provides tips and advice for young adults. If you are just getting started on your own, you can pick up some helpful information here. Go ahead and ask for a finance tip, an insurance tip, an auto tip, a time management tip, a food tip, or an household tip.</speak>",
 
