@@ -1,7 +1,8 @@
 # Build an Alexa Skill using basic Python functions
 
 ## Review the presentation to learn more about Alexa and the Cloud:
-[Intro to Alexa](https://github.com/full-steam-ahead/alexa/blob/master/Create%20Your%20First%20Alexa%20Skill.pdf)
+[Intro to Alexa](https://github.com/full-steam-ahead/alexa/blob/master/Create%20Your%20First%20Alexa%20Skill.pdf)  
+
 Note: In order for the presentation's hyperlinks to work, you must click the Download button and open the PDF. 
 
 ## What You Will Learn
