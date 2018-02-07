@@ -52,7 +52,7 @@ import re
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-# Load the S3 JSON
+# Load the S3 JSON - located in this project responses dir
 s3 = boto3.resource('s3')
 # Grab the JSON from the file and load it into a map
 json_string = s3.Object(BUCKET_NAME,RESPONSE_JSON).get()['Body'].read().decode('utf-8')
