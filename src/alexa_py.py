@@ -37,13 +37,13 @@ import logging
 # --------------- Your functions that implement your intents ------------------
 
 def about():
-    return "<speak>Welcome to My School. We are the coolest school located in the Silicon Valley of the South. We love our students, staff, teachers and the community.</speak>"
+    return "<speak>We are the coolest middle school in Virginia. The students and teachers are the best!</speak>"
 
 def contact():
-    return "<speak>The best way to reach us is at info at my school dot E D U. You can also leave us voice mail at 8 0 4, 5 5 5, 1 2 1 2. We are also on twitter, at my school.</speak>"
+    return "<speak>The best way to reach us is at info at my school dot E D U. You can also leave us voice mail at 8 0 4, 5 5 5, 1 2 1 2. </speak>"
 
 def upcoming():
-    return "<speak>The Full Steam Ahead is Friday, July twenty first.</speak>"
+    return "<speak>The next event is the Full Steam Ahead conference on Thursday, July nineteenth.</speak>"
 
 
 # --------------- Primary/Required functions (update as needed) ------------------
@@ -52,7 +52,7 @@ def launch():
     """ Called when the user launches the skill without specifying what they want
     """
 
-    return "<speak>Welcome to the 4 1 1 for my school. This skill provides information about my school, a really cool school located in the Silicon Valley of the South. You can ask for general info, contact info, and upcoming events.</speak>"
+    return "<speak>Welcome to the My School skill. You can ask for general info, contact info, and upcoming events.</speak>"
 
 
 def help():
@@ -64,7 +64,7 @@ def help():
 
 def end():
 
-    return "<speak.Thank you for asking about my school. Have a nice day! </speak>"
+    return "<speak> Have a nice day! </speak>"
 
 
 # ***************************** CUSTOMIZE ABOVE **************************************************
