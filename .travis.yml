@@ -1,0 +1,18 @@
+language: python
+python:
+  - '2.7'
+script: ./unittests
+deploy:
+  provider: lambda
+  function_name: alexaPyTest
+  region: us-east-1
+  role: arn:aws:iam::980316180835:role/lambda_techem_skill
+  runtime: python3.6
+  module_name: alexa_py
+  handler_name: lambda_handler
+  zip: ./src
+  access_key_id: AKIAJC4OTPBSMBJD4ZBA
+  on:
+    branch: master
+  secret_access_key:
+    secure: wb/cbD/7pufM884d9eFH8w3TXQ/5HoBXQLa9R1rxAyqLX9VnP25ZkrozfRm/t7Y9FNrSYBdGlI2e9XGWH8/EglS1YH1Dr3ULuSc1+/wRZTXybz9sn/6WtVYdsAvhIbS89DjCsnU3+C8Q9KbeVETqEVdYK9OO6C1QgSeywh3bF455+5togSVrv2c94IOAknZ8NhQRa4U8cTKyVS9+GL1Bkvr7Ds+Igdiv5RbVphc2g5Zu3jF4hh9UYjfyJzFlneqtGWFzdcBtQUfnmB2VaOAAYLBnRSILzkx/TaP/nNfz8TsbUqlL7fEiwTVjL5cRwXPLs6ZnKODOdvmAsqF5iCm6nwZTivYTBhcmM5IHL+cFVUKfwFf4/LGcAc16XqY9B0XsQ6dTBVwukrMU0VBKoKH/nbpwqOIbjIi+ph/BSERP8dNbh18rYE8w2taEfvoR6GH9aquCvA5LdXvBTj6UfHgQpWr2d1E3yKGDcbhZyJA7XDGKv1CRcvmMzD9GHfbo15Gi/F37qtLZXz2knCtUSCneBmxHUSVKg4K+yHLf/omf74M0XAn64YNno1YohYbpjIdfxL13TuZiZEMO1arxmuMSfhaEuzvKYXTMusjX0ajYGZ39/0H5cepuO/+T7bJVmqm+t9W93eIBC22EtErpaIMneNoSo1IoEgy61RpnVns4v4I=
