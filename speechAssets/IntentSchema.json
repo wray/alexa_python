@@ -1,16 +1,43 @@
 {
-  "intents": [
-    {
-      "intent": "AMAZON.HelpIntent"
-    },
-    {
-      "intent": "About"
-    },
-    {
-      "intent": "Contact"
-    },
-    {
-      "intent": "Upcoming"
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "my school",
+            "intents": [
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "Help"
+                    ]
+                },
+                {
+                    "name": "About",
+                    "slots": [],
+                    "samples": [
+                        "About",
+                        "Information",
+                        "General Information",
+                        "General Info"
+                    ]
+                },
+                {
+                    "name": "Contact",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "Upcoming",
+                    "slots": [],
+                    "samples": [
+                        "Upcoming Events",
+                        "Whats New"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                }
+            ],
+            "types": []
+        }
     }
-  ]
 }
