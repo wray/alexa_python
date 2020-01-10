@@ -22,7 +22,14 @@
                 {
                     "name": "Contact",
                     "slots": [],
-                    "samples": []
+                    "samples": [
+                        "Contact Us",
+                        "Location",
+                        "Address",
+                        "Phone Number",
+                        "Web Address",
+                        "Email Address"
+                     ]
                 },
                 {
                     "name": "Upcoming",
@@ -46,7 +53,9 @@
                 },
                 {
                     "name": "AMAZON.NavigateHomeIntent",
-                    "samples": []
+                    "samples": [
+                        "Go Home"
+                    ]
                 }
             ],
             "types": []
