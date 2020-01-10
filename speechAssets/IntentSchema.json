@@ -33,6 +33,18 @@
                     ]
                 },
                 {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "No",
+                        "Abort",
+                        "Halt",
+                        "Stop",
+                        "Cancel",
+                        "Disarm",
+                        "Negative"
+                    ]
+                },
+                {
                     "name": "AMAZON.NavigateHomeIntent",
                     "samples": []
                 }
